@@ -1,0 +1,33 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+Add your content here.
+
+
+= Details =
+
+Bộ gõ tiếng Việt dùng cho tinyMCE editors.
+Cách sử dụng:
+1. Thêm dòng sau vào phần head của trang web: *<script src="/js/zViet-mce-min.js"></script>*
+2. Khi setup tinyMCE thêm hàm setup sau:
+	_setup: function(ed) {
+		(ff)?ed.onKeyDown.add(zKP):ed.onKeyPress.add(zKP)
+	}_
+	Ví dụ:
+
+tinyMCE.init({
+	mode: "exact",
+	...
+	theme_advanced_toolbar_location : "top",
+	*setup: function(ed) {
+		(ff)?ed.onKeyDown.add(zKP):ed.onKeyPress.add(zKP)
+	}*
+});
+3. Khai báo biến: *var bodau = "";*
+4. Thêm các dòng sau để người dùng chọn cách gõ (có hai kiểu gõ là telex và vni):
+	*<input name="r" onclick="bodau=''" type="radio" checked>Tắt&nbsp;
+	<input name="r" onclick="bodau='s|f|r|x|j|aeo|w|w|d|';" type="radio">Telex&nbsp;
+	<input name="r" onclick="bodau='1|2|3|4|5|6|7|8|9|';" type="radio">VNI &nbsp;*
+
+Chúc thành công
